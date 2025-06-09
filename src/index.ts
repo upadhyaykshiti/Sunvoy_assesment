@@ -7,12 +7,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-// ✅ Fix for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 async function main() {
-  // ✅ Login and get fetchWithAuth + cookieJar
   const { fetchWithAuth, cookieJar } = await login();
 
   console.log('📥 Fetching all users...');
@@ -32,7 +30,7 @@ async function main() {
 
   const outPath = path.join(__dirname, '..', 'users.json');
   fs.writeFileSync(outPath, JSON.stringify(output, null, 2));
-  console.log('✅ Saved users to users.json');
+ // console.log('✅ Saved users to users.json');
 }
 
 main().catch((err) => {

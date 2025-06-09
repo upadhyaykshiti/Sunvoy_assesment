@@ -33,7 +33,7 @@ export async function fetchCurrentUser(fetchWithAuth: CustomFetch, cookieJar: Co
 
   const res = await fetchWithAuth('https://challenge.sunvoy.com/settings/tokens');
   const html = await res.text();
-  console.log('📄 Loaded /settings/tokens HTML');
+  //console.log('Loaded /settings/tokens HTML');
 
   const dom = new JSDOM(html);
   const document = dom.window.document;
@@ -53,9 +53,9 @@ export async function fetchCurrentUser(fetchWithAuth: CustomFetch, cookieJar: Co
     throw new Error('❌ Missing access_token or userId from /settings/tokens page');
   }
 
-  console.log('🔑 access_token:', access_token);
-  console.log('🔢 timestamp:', timestamp);
-  console.log('🧑 userId:', userId);
+  //console.log('access_token:', access_token);
+  //console.log('timestamp:', timestamp);
+  //console.log('userId:', userId);
 
   const payloadObj = {
     access_token,
